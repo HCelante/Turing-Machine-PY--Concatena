@@ -5,3 +5,8 @@ class estado():
     self.nome_Estado = lista_de_inf[0]
     self.prox_Estado = []
     self.ante_Estado = []
+    self.consome = self.set_consome()
+    self.escreve = self.set_escreve()
+
+
+  
