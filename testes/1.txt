@@ -19,3 +19,4 @@ B
 1 2 B B S B B S
 1 2 B B S b b R
 1 2 B B S a a R
+1

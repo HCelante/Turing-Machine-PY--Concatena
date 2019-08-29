@@ -8,14 +8,26 @@ class Machine():
         self.Alfabeto = [] # alfabeto da maquina
         self.estados_Iniciais = [] # lista de estados iniciais
         self.finais = [] # lista de estados finais
-        self.qtd_fitas = 0 # qtd de fitas 
+        self.qtd_fitas = [] # qtd de fitas 
+        self.blank_space = ''
     
     
     def set_atributos(self,lista):
         self.Alfabeto = lista[1]
-        self.estados_Iniciais = linha[5]
-        self.finais = lista[6]
-        self.qtd_fitas = int(lista[7])
+        self.estados_Iniciais = lista[4]
+        self.finais = lista[5]
+        self.qtd_fitas = lista[-1]
+        self.blank_space = lista[2]
+
+    def print_maquina(self):
+        print("> alfabeto: ", self.Alfabeto)
+        print("> estados iniciais: ", self.estados_Iniciais)
+        print("> estados finais: ",self.finais)
+        print("> qtd de fitas: ", self.qtd_fitas)
+        print("> blank space: ", self.blank_space)
+
+
+
 
     def fita_Anda(self, posfita, proxpossivel):
         if (proxpossivel.lado) == ['R']:
@@ -36,7 +48,7 @@ class Machine():
                     elif (proxpossivel.prox_Estado != None) and (proxpossivel in self.finais):
                         print (fitatual)
                         return True
-                    else
+                    else:
                         return False
         else:
             proxpossivel = vertice.prox_Estado
@@ -48,25 +60,10 @@ class Machine():
                     elif (proxpossivel.prox_Estado != None) and (proxpossivel in self.finais):
                         print (fitatual)
                         return True
-                    else
+                    else:
                         return False
-            else
+            else:
                 return False
-
-                    
-
-    
-
-
-
-
-
-
-
-
-
-
-#
 #    def inicia_consome(self):
 #        atual_est = self.atual_State
 #        fita = self.Fita
