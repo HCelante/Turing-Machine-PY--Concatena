@@ -14,5 +14,13 @@ def main():
         for line in auxList:
                 print(line)
         #print (auxList)
+        # leu o arquivo e cortou
+        # linha 1 alfabeto de entrada
+        # linha 2 fita
+        # linha 3 simbolo que representa branco
+        # linha 4 estados
+        # linha 5 estado inicial
+        # linha 6 conjunto de estados finais
+        # quantidade de fitas 
 if __name__ == "__main__":
   main()
