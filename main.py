@@ -1,5 +1,5 @@
 import sys
-import TuringMachine 
+
 
 def main():
         auxList = []
