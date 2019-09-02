@@ -11,8 +11,8 @@ def main():
                 #        if i != ' ':
                 #                auxaux.append(i)
                 auxList = [line.strip().split(" ") for line in f]
-        #for line in auxList:
-        #        print(line)
+        for line in auxList:
+                print(line)
         #print (auxList)
         # leu o arquivo e cortou
         # linha 1 alfabeto de entrada
@@ -22,8 +22,6 @@ def main():
         # linha 5 estado inicial
         # linha 6 conjunto de estados finais
         # quantidade de fitas
-        machine = TuringMachine.Machine()
-        machine.set_atributos(auxList) 
-        machine.print_maquina()
+
 if __name__ == "__main__":
   main()
