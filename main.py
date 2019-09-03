@@ -16,7 +16,7 @@ def replace(maq1, maq2, para):# substitui o nome dos estados ate nao haver estad
                         para = 1
                         #print("traaal")
                         if cont <= len(maq2[3]):
-
+                                
                                 cont += 1
                                 ind = maq2[3].index(estado) # recebe o  indice do estado a ser renomeado
                                 if ((estado + maq2[3][ind]) not in maq2[3]) and ((estado + maq2[3][ind]) not in maq1[3]):
