@@ -33,7 +33,7 @@ def replace(maq1, maq2, para):# substitui o nome dos estados ate nao haver estad
 def busca_NNE(lista): # busca nome nao existente
         sai = None
         nume = 0
-        print(lista)
+        #print(lista)
         while sai == None:
                 nume+=1
                 if str(nume) not in lista:
@@ -48,14 +48,32 @@ def busca_NNE(lista): # busca nome nao existente
 ########################################################################################################
 
 ########################################################################################################
-########################## FUNCAO EMENDA ###############################################################
-#_________________________________________ FAZ A CONCATENACAO DAS MAQUINAS #############################
-def emenda(maq1, maq2):# concatenacao das maquinas
-        # concatenacao do alfabeto
-        pass
+########################## FUNCAO RENOMEIA #############################################################
+#_________________________________________ RENOMEIA AS TRANSICOES ######################################
+def renomeia(maq2, auxList2):
+	nomes1 = []
+	nomes2 = []
+	nomes1 = auxList2[3]
+	print(auxList2[3])
+	nomes2 = maq2[3]
+	cont = 8
+	aux = (auxList2[7:])
+	#print(auxList2[3])
+	for tr in aux:
+		#print(tr[0])
+		#print(type(tr[0]))
+		#print("ue",nomes1[0])
+		#print(nomes2[0])
+		indsub = nomes1.index(tr[0])
+		maq2[cont][0] = maq2[3][indsub]
+		indsub2 = nomes1.index(tr[1])
+		maq2[cont][1] = maq2[3][indsub2]
+		print(maq2[cont])
+		cont += 1
+	return maq2
 
 ########################################################################################################
-# FIM EMENDA ###########################################################################################
+# FIM RENOMEIA ###########################################################################################
 ########################################################################################################
 
 def main(): # recebe por parametro os dois arquivos  txt referente as maquinas 
@@ -66,14 +84,18 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
          
         with open((sys.argv[2]), "r") as f:
                 auxList2 = [line.strip().split(" ") for line in f]
-        #for line in auxList1:
-                #print(line)
-        #for line in auxList2:
-                #print(line)
+        maqold = []
+
+         
+        with open((sys.argv[2]), "r") as f:
+                maqold = [line.strip().split(" ") for line in f]
+	
+        #print(maqold[3])
         maq2 = replace(auxList1, auxList2, 1)
-        print (maq2)
-        maq1 = auxList1
-        #maq3 = emenda(maq1, maq2)
+        
+        print (maqold[3])
+        #maq1 = auxList1
+        maq21 = renomeia(maq2, maqold)
 
         #print (auxList)
         # leu o arquivo e cortou
