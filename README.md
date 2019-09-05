@@ -1,6 +1,3 @@
-# Turing-Machine-PY Concatenação
-
-
 ## Concatenação de 2 Máquinas de Turing
 
 Alunos:
