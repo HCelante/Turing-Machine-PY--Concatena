@@ -2,8 +2,11 @@
 
 
 # Concatenação de 2 Máquinas de Turing
+
 Alunos: > Alisson da Silva Vieira, RA: 2046229
         > Higor Luiz Farinha Celante, RA.: 1602870
+        
+        
 ## Introdução
   ### Sobre a Máquina de Turing
     Uma máquina de Turing é uma máquina hipotética pensada pelo matemático Alan Turing em 1936. Ela é conhecida como máquina universal muitos anos antes de existirem os modernos computadores digitais. Em um sentido preciso, é um modelo abstrato de um computador, que se restringe apenas aos aspectos lógicos do seu funcionamento (memória, estados e transições), e não a sua implementação física. Apesar de sua simplicidade, a máquina pode simular QUALQUER algoritmo de computador, por mais complicado que seja!
