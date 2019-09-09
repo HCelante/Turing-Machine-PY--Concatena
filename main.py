@@ -160,7 +160,7 @@ def grava_maquina(maq3):
 ##############################################
 
 def main(): # recebe por parametro os dois arquivos  txt referente as maquinas 
-    
+    print('Processo iniciado _____________________________/')
     auxList1 = []
     auxList2 =[]  
     maqold = []
@@ -183,6 +183,6 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
     #### gravando a maquina 3 em arquivo 
     grava_maquina(maq3)
     # ______________________________________________________
-
+    print("Terminado _____________________________________/")
 if __name__ == "__main__":
   main()
