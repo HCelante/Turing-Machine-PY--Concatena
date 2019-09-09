@@ -80,12 +80,9 @@ def monta(maq1, maq2):
 
     for i in range(4):
         maq3.append(maq1[i] + maq2[i])
-    #print("adicionando ini e final")
     maq3.append(maq1[4])
     maq3.append(maq2[5])
     maq3.append(maq1[6])
-    #print(maq3)
-    #print("pronto")
     for trans in (maq1[7:]):
         maq3.append(trans)
     lista_trs = []
