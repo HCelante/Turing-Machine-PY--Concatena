@@ -49,17 +49,13 @@ def busca_NNE(lista): # busca nome nao existente
 #_________________________________________ RENOMEIA AS TRANSICOES ######################################
 def renomeia(maq2, auxList2):
     nomes1 = []
-    #nomes2 = []
     nomes1 = auxList2[3]
-    #print(auxList2[3])
-    #nomes2 = maq2[3]
     cont = 7
     aux = (auxList2[7:])
     indini = nomes1.index(auxList2[4][0]) # indice do estado inicial
     maq2[4] = [maq2[3][indini] ] # lista com a string dentro # string referente estado inicial
     indifi = nomes1.index(auxList2[5][0]) # indice do estado inicial
     maq2[5] = [maq2[3][indifi] ] # lista com a string dentro # string referente estado final
-    #print(auxList2[3])
     for tr in aux:
         indsub = nomes1.index(tr[0])
         maq2[cont][0] = maq2[3][indsub]
