@@ -158,10 +158,14 @@ def grava_maquina(maq3):
 ##############################################
 
 def main(): # recebe por parametro os dois arquivos  txt referente as maquinas 
-    #### abrindo os arquivos
+    
     auxList1 = []
     auxList2 =[]  
     maqold = []
+    maq21 = []
+
+    
+    #### abrindo os arquivos
     auxList1, auxList2, maqold = le_maquina()
     # ______________________________________________________
     
