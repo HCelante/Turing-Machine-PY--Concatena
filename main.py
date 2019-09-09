@@ -20,6 +20,7 @@ def replace(maq1, maq2, para):# substitui o nome dos estados ate nao haver estad
                 if ((estado + maq2[3][ind]) not in maq2[3]) and ((estado + maq2[3][ind]) not in maq1[3]):
                     maq2[3][ind] = estado + maq2[3][ind] # renomeia o estado com a concatenacao do seu correspondente ex: 'a' e 'a' vira 'aa'
                 else:
+                    print("> O estado ",maq2[3][ind], "precisou de um novo nome")
                     maq2[3][ind] = busca_NNE(maq1[3] + maq2[3])
 
                 
@@ -34,7 +35,7 @@ def busca_NNE(lista): # busca nome nao existente
         nume+=1
         if str(nume) not in lista:
             break
-    print ("novo nome valido encontrado ",nume)
+    print (" - Novo nome valido encontrado",nume)
     
     au = (str(nume))
     return   au
@@ -88,8 +89,9 @@ def monta(maq1, maq2):
     lista_trs = []
     lista_trs = cria_nova_tr(maq1,maq2)
     for trs in lista_trs:
-        print(trs)
-        print("transicao adicionada")
+        
+        print("> Transicao de conexao adicionada")
+        print(" - ",trs)
         maq3.append(trs)
 
     for tr2 in (maq2[7:]):
@@ -139,7 +141,7 @@ def grava_maquina(maq3):
             arquivo.write(str(chs + ' '))
         arquivo.write('\n')    
     arquivo.close()
-    print("gravado no arquivo",(str((sys.argv[1]).strip(".txt")) + str((sys.argv[2]).strip(".txt"))) + '.txt' )
+    print("> Maquina 3 gravada no arquivo",(str((sys.argv[1]).strip(".txt")) + str((sys.argv[2]).strip(".txt"))) + '.txt' )
 
 # FIM OPERACOES EM ARQUIVO ##############################################################################
 #########################################################################################################
