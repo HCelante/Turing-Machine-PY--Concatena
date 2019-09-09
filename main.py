@@ -163,8 +163,8 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
     auxList2 =[]  
     maqold = []
     maq21 = []
+    maq3 = []
 
-    
     #### abrindo os arquivos
     auxList1, auxList2, maqold = le_maquina()
     # ______________________________________________________
@@ -175,7 +175,6 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
     # ______________________________________________________
 
     #### criando a maquina 3
-    maq3 = []
     maq3 = monta(auxList1,maq21)
     # ______________________________________________________
     
