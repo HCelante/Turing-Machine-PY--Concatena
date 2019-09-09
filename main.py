@@ -105,7 +105,7 @@ def monta(maq1, maq2):
         print("transicao adicionada")
         maq3.append(trs)
 
-    for tr2 in (maq1[7:]):
+    for tr2 in (maq2[7:]):
         maq3.append(tr2)
     
     return maq3
