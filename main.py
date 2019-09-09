@@ -143,9 +143,8 @@ def grava_maquina(maq3):
 #########################################################################################################
 
 ##### NOTAS 
-    # leu o arquivo e cortou
-    # linha 1 alfabeto de entrada
-    # linha 2 fita
+    # linha 1 alfabeto de entrada (indice 0)
+    # linha 2 fita                (indice 1)
     # linha 3 simbolo que representa branco
     # linha 4 estados
     # linha 5 estado inicial
