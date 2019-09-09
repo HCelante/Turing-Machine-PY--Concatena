@@ -18,9 +18,10 @@ def replace(maq1, maq2, para):# substitui o nome dos estados ate nao haver estad
                 cont += 1
                 ind = maq2[3].index(estado) # recebe o  indice do estado a ser renomeado
                 if ((estado + maq2[3][ind]) not in maq2[3]) and ((estado + maq2[3][ind]) not in maq1[3]):
+                    print("> O estado da maquina 2 = ",maq2[3][ind],"recebeu o nome de ",(estado + maq2[3][ind]))
                     maq2[3][ind] = estado + maq2[3][ind] # renomeia o estado com a concatenacao do seu correspondente ex: 'a' e 'a' vira 'aa'
                 else:
-                    print("> O estado ",maq2[3][ind], "precisou de um novo nome")
+                    print("> O estado da maquina 2 = ",maq2[3][ind], "precisou de um novo nome inteiro valido")
                     maq2[3][ind] = busca_NNE(maq1[3] + maq2[3])
 
                 
