@@ -123,6 +123,7 @@ def cria_nova_tr(maq1,maq2):
 # FIM CRIACAO  #########################################################################################
 ########################################################################################################
 
+
 def main(): # recebe por parametro os dois arquivos  txt referente as maquinas 
     #auxList = []
     #auxaux =[]
@@ -157,6 +158,13 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
     # linha 5 estado inicial
     # linha 6 conjunto de estados finais
     # quantidade de fitas
+    arquivo = open('saida.txt', 'w')
+    for linhas in maq3:
+
+        for chs in linhas:
+            arquivo.write(str(' ' + chs + ' '))
+        arquivo.write('\n')    
+    arquivo.close()
 
 if __name__ == "__main__":
   main()
