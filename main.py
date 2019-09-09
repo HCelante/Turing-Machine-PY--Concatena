@@ -158,7 +158,7 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
     # linha 5 estado inicial
     # linha 6 conjunto de estados finais
     # quantidade de fitas
-    arquivo = open('saida.txt', 'w')
+    arquivo = open((str((sys.argv[1]).strip(".txt")) + str((sys.argv[2]).strip(".txt"))) + '.txt', 'w')
     for linhas in maq3:
 
         for chs in linhas:
