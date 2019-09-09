@@ -162,7 +162,7 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
     for linhas in maq3:
 
         for chs in linhas:
-            arquivo.write(str(' ' + chs + ' '))
+            arquivo.write(str(chs + ' '))
         arquivo.write('\n')    
     arquivo.close()
 
