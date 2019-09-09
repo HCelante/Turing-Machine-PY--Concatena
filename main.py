@@ -10,11 +10,9 @@ def replace(maq1, maq2, para):# substitui o nome dos estados ate nao haver estad
         return maq2
     para = 0
     for estado in maq1[3]: # checa estado por estado da máquina 1, 
-        #print(type(estado), type(maq2[3][0]))
-
         if estado in maq2[3]: # se existe um com mesmo nome na maquina 2, renomeia
             para = 1
-            #print("traaal")
+
             if cont <= len(maq2[3]):
                 
                 cont += 1
@@ -23,8 +21,7 @@ def replace(maq1, maq2, para):# substitui o nome dos estados ate nao haver estad
                     maq2[3][ind] = estado + maq2[3][ind] # renomeia o estado com a concatenacao do seu correspondente ex: 'a' e 'a' vira 'aa'
                 else:
                     maq2[3][ind] = busca_NNE(maq1[3] + maq2[3])
-                #print (maq1[3])
-                #print (maq2[3])
+
                 
             else:
                 break
@@ -33,17 +30,16 @@ def replace(maq1, maq2, para):# substitui o nome dos estados ate nao haver estad
 def busca_NNE(lista): # busca nome nao existente
     sai = None
     nume = 0
-    #print(lista)
     while sai == None:
         nume+=1
         if str(nume) not in lista:
             break
-    print ("nome valido encontrado ",nume)
+    print ("novo nome valido encontrado ",nume)
     
     au = (str(nume))
     return   au
 
-########################################################################################################
+
 # FIM REPLACE ##########################################################################################
 ########################################################################################################
 
@@ -59,25 +55,19 @@ def renomeia(maq2, auxList2):
     cont = 7
     aux = (auxList2[7:])
     indini = nomes1.index(auxList2[4][0]) # indice do estado inicial
-    print("novo nome", maq2[3][indini])
     maq2[4] = [maq2[3][indini] ] # lista com a string dentro # string referente estado inicial
     indifi = nomes1.index(auxList2[5][0]) # indice do estado inicial
     maq2[5] = [maq2[3][indifi] ] # lista com a string dentro # string referente estado final
     #print(auxList2[3])
     for tr in aux:
-        #print(tr[0])
-        #print(type(tr[0]))
-        #print("ue",nomes1[0])
-        #print(nomes2[0])
         indsub = nomes1.index(tr[0])
         maq2[cont][0] = maq2[3][indsub]
         indsub2 = nomes1.index(tr[1])
         maq2[cont][1] = maq2[3][indsub2]
-        #print(maq2[cont])
         cont += 1
     return maq2
 
-########################################################################################################
+
 # FIM RENOMEIA #########################################################################################
 ########################################################################################################
 
@@ -119,14 +109,16 @@ def cria_nova_tr(maq1,maq2):
     return tr_novas
 
         
-########################################################################################################
+
 # FIM CRIACAO  #########################################################################################
 ########################################################################################################
 
+########################################################################################################
+# OPERACOES EM ARQUIVO #################################################################################
+#_____________________________METODOS DE LEITURA E GRAVACAO EM ARQUIVO #################################
 
-def main(): # recebe por parametro os dois arquivos  txt referente as maquinas 
-    #auxList = []
-    #auxaux =[]
+# Abre os dois arquivos e retorna as duas maquinas em 3 variaveis ######################################
+def le_maquina():
     with open((sys.argv[1]), "r") as f:
         auxList1 = [line.strip().split(" ") for line in f]
      
@@ -137,19 +129,25 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
      
     with open((sys.argv[2]), "r") as f:
         maqold = [line.strip().split(" ") for line in f]
-    
-    #print(maqold[3])
-    maq2 = replace(auxList1, auxList2, 1)
-    
-    #print (maqold[3])
-    #maq1 = auxList1
-    maq21 = renomeia(maq2, maqold)
-    #for l in maq21:
-    #    print(l)
-    maq3 = []
-    maq3 = monta(auxList1,maq21)
-    print(maq3)
-    #print (auxList)
+
+    return auxList1, auxList2, maqold
+
+# Grava a nova maquina criada ###########################################################################
+
+def grava_maquina(maq3):
+    arquivo = open((str((sys.argv[1]).strip(".txt")) + str((sys.argv[2]).strip(".txt"))) + '.txt', 'w')
+    for linhas in maq3:
+
+        for chs in linhas:
+            arquivo.write(str(chs + ' '))
+        arquivo.write('\n')    
+    arquivo.close()
+    print("gravado no arquivo",(str((sys.argv[1]).strip(".txt")) + str((sys.argv[2]).strip(".txt"))) + '.txt' )
+
+# FIM OPERACOES EM ARQUIVO ##############################################################################
+#########################################################################################################
+
+##### NOTAS 
     # leu o arquivo e cortou
     # linha 1 alfabeto de entrada
     # linha 2 fita
@@ -158,13 +156,31 @@ def main(): # recebe por parametro os dois arquivos  txt referente as maquinas
     # linha 5 estado inicial
     # linha 6 conjunto de estados finais
     # quantidade de fitas
-    arquivo = open((str((sys.argv[1]).strip(".txt")) + str((sys.argv[2]).strip(".txt"))) + '.txt', 'w')
-    for linhas in maq3:
 
-        for chs in linhas:
-            arquivo.write(str(chs + ' '))
-        arquivo.write('\n')    
-    arquivo.close()
+# FIM NOTAS ##################################
+##############################################
+
+def main(): # recebe por parametro os dois arquivos  txt referente as maquinas 
+    #### abrindo os arquivos
+    auxList1 = []
+    auxList2 =[]  
+    maqold = []
+    auxList1, auxList2, maqold = le_maquina()
+    # ______________________________________________________
+    
+    #### renomeando os estados
+    maq2 = replace(auxList1, auxList2, 1)
+    maq21 = renomeia(maq2, maqold)
+    # ______________________________________________________
+
+    #### criando a maquina 3
+    maq3 = []
+    maq3 = monta(auxList1,maq21)
+    # ______________________________________________________
+    
+    #### gravando a maquina 3 em arquivo 
+    grava_maquina(maq3)
+    # ______________________________________________________
 
 if __name__ == "__main__":
   main()
