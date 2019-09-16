@@ -75,7 +75,7 @@ def renomeia(maq2, auxList2):
 #_________________________________________ CRIA A MAQUINA RESULTADO DA CONCATENACAO ####################
 def monta(maq1, maq2):
     maq3 = []
-
+    maq3.append('TM')
     for i in range(4):
         maq3.append(maq1[i] + maq2[i])
     maq3.append(maq1[4])
@@ -125,7 +125,12 @@ def le_maquina():
      
     with open((sys.argv[2]), "r") as f:
         maqold = [line.strip().split(" ") for line in f]
-
+    
+    
+    auxList1 = auxList1[1:]
+    auxList2 = auxList2[1:]
+    maqold = maqold[1:]
+    
     return auxList1, auxList2, maqold
 
 # Grava a nova maquina criada ###########################################################################
